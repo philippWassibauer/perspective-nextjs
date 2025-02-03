@@ -15,18 +15,15 @@ export default function Home() {
       import("superstore-arrow/superstore.arrow"),
     ]).then(async ([_, __, ___, perspective, arr]) => {
       try {
-        const worker = perspective.worker();
-        const websocket = perspective.websocket(
+        const worker = await perspective.worker();
+        const websocket = await perspective.websocket(
           "ws://localhost:8080/websocket"
         );
         const server_table = await websocket.open_table("enhanced-midone");
-        // Anything calling the table, like .view, .schema just hangs
-        const view = await server_table.view({});
-        console.log("got view");
-        const client_table = await worker.table(view);
-        const table = worker.table(arr.default.slice());
+        const view = await server_table.view();
+        const server_view = await worker.table(view);
+        const table = await worker.table(server_view);
         ref.current!.load(table);
-        console.log("-------------------------------------");
       } catch (error) {
         console.log("error", error);
       }
