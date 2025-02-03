@@ -7,26 +7,23 @@ export default function Home() {
   React.useEffect(() => {
     Promise.all([
       import("@finos/perspective-viewer"),
-      import("@finos/perspective-viewer-xy-scatter"),
+      //import("@finos/perspective-viewer-xy-scatter"),
       import("@finos/perspective-viewer-datagrid"),
       import("@finos/perspective-viewer-d3fc"),
       import("@finos/perspective"),
-       @ts-ignore
+      // @ts-ignore
       import("superstore-arrow/superstore.arrow"),
-    ]).then(async ([_, arr]) => {
+    ]).then(async ([_, __, ___, perspective, arr]) => {
       try {
         const worker = perspective.worker();
-        const websocket = await perspective.websocket(
+        const websocket = perspective.websocket(
           "ws://localhost:8080/websocket"
         );
         const server_table = await websocket.open_table("enhanced-midone");
         // Anything calling the table, like .view, .schema just hangs
-        console.log(await server_table.columns());
-        console.log("dfg");
         const view = await server_table.view({});
         console.log("got view");
-        //const client_table = await worker.table(view);
-
+        const client_table = await worker.table(view);
         const table = worker.table(arr.default.slice());
         ref.current!.load(table);
         console.log("-------------------------------------");
