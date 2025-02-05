@@ -20,8 +20,7 @@ export default function Home() {
           "ws://localhost:8080/websocket"
         );
         const server_table = await websocket.open_table("enhanced-midone");
-        const view = await server_table.view();
-        const server_view = await worker.table(view);
+        const server_view = await server_table.view();
         const table = await worker.table(server_view);
         ref.current!.load(table);
       } catch (error) {
