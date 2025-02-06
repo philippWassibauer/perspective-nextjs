@@ -19,9 +19,10 @@ export default function Home() {
         const websocket = await perspective.websocket(
           "ws://localhost:8080/websocket"
         );
-        const server_table = await websocket.open_table("enhanced-midone");
-        const server_view = await server_table.view();
-        const table = await worker.table(server_view);
+        //const server_table = await websocket.open_table("enhanced-midone");
+        //const server_view = await server_table.view();
+        const table = worker.table(arr.default.slice());
+        //const table = await worker.table(server_view);
         ref.current!.load(table);
 
         const layout = {
