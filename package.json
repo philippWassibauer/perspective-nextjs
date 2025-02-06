@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@finos/perspective": "^3.3.2",
-    "@finos/perspective-viewer": "3.3.2",
-    "@finos/perspective-viewer-d3fc": "3.3.2",
-    "@finos/perspective-viewer-datagrid": "3.3.2",
+    "@finos/perspective": "^3.3.3",
+    "@finos/perspective-viewer": "^3.3.3",
+    "@finos/perspective-viewer-d3fc": "^3.3.3",
+    "@finos/perspective-viewer-datagrid": "^3.3.3",
     "@finos/perspective-webpack-plugin": "3.2.1",
     "@finos/perspective-workspace": "^3.3.3",
     "@types/node": "18.16.0",
@@ -21,13 +21,17 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
-    "next": "13.3.1",
+    "file-loader": "^6.2.0",
+    "next": "14.2.3",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "stoppable": "^1.1.0",
-    "superstore-arrow": "3.0.0",
+    "superstore-arrow": "^3.0.0",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
-  }
+  },
+  "devDependencies": {
+    "arraybuffer-loader": "^1.0.8"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

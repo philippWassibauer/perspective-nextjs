@@ -3,10 +3,9 @@ const PerspectivePlugin = require("@finos/perspective-webpack-plugin");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
+  webpack: function (config, { isServer }) {
     config.experiments = {
       ...config.experiments,
-      topLevelAwait: true,
     };
 
     if (!isServer) {
