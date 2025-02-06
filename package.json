@@ -14,6 +14,7 @@
     "@finos/perspective-viewer-d3fc": "3.3.2",
     "@finos/perspective-viewer-datagrid": "3.3.2",
     "@finos/perspective-webpack-plugin": "3.2.1",
+    "@finos/perspective-workspace": "^3.3.3",
     "@types/node": "18.16.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",

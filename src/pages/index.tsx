@@ -23,6 +23,31 @@ export default function Home() {
         const server_view = await server_table.view();
         const table = await worker.table(server_view);
         ref.current!.load(table);
+
+        const layout = {
+          plugin: "Y Area",
+          plugin_config: {
+            legend: {
+              height: "106px",
+              left: "100px",
+              top: "25px",
+              width: "",
+            },
+          },
+          settings: true,
+          group_by: ["fail_state"],
+          split_by: ["dest"],
+          columns: ["mid"],
+          filter: [],
+          sort: [["mid", "col desc"]],
+          expressions: {},
+          aggregates: {},
+        };
+
+        ref.current!.restore({
+          theme: "Pro Dark",
+          ...layout,
+        });
       } catch (error) {
         console.log("error", error);
       }
